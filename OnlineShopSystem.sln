@@ -1,8 +1,38 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F564D2D8-7A8B-4082-B366-FC7AB910FD6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{12447DAD-B514-4BC9-AFCA-DCC5EB432C00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{FC6EC3E4-02C3-433E-9C1A-D96BD7D2432E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74DD92C9-B9B3-429A-BF3E-CCE68663FC8D}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{35247A7A-F0DA-4E10-A87B-AE526E1E535B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{F2C10832-926C-49F6-B162-9F1F073544CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12447DAD-B514-4BC9-AFCA-DCC5EB432C00} = {F564D2D8-7A8B-4082-B366-FC7AB910FD6F}
+		{FC6EC3E4-02C3-433E-9C1A-D96BD7D2432E} = {12447DAD-B514-4BC9-AFCA-DCC5EB432C00}
+		{F2C10832-926C-49F6-B162-9F1F073544CD} = {35247A7A-F0DA-4E10-A87B-AE526E1E535B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC6EC3E4-02C3-433E-9C1A-D96BD7D2432E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC6EC3E4-02C3-433E-9C1A-D96BD7D2432E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC6EC3E4-02C3-433E-9C1A-D96BD7D2432E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC6EC3E4-02C3-433E-9C1A-D96BD7D2432E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C10832-926C-49F6-B162-9F1F073544CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C10832-926C-49F6-B162-9F1F073544CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C10832-926C-49F6-B162-9F1F073544CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C10832-926C-49F6-B162-9F1F073544CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
