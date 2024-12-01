@@ -8,7 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Cat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74DD92C9-B9B3-429A-BF3E-CCE68663FC8D}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.dcproj = docker-compose.dcproj
 		docker-compose.yml = docker-compose.yml
 		docker-compose.override.yml = docker-compose.override.yml
 	EndProjectSection
