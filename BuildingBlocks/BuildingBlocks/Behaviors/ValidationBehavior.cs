@@ -1,7 +1,6 @@
 using BuildingBlocks.CQRS;
 using FluentValidation;
 using MediatR;
-using ValidationException = System.ComponentModel.DataAnnotations.ValidationException;
 
 namespace BuildingBlocks.Behaviors;
 
@@ -22,7 +21,7 @@ public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TReq
             .SelectMany(r => r.Errors)
             .ToList();
 
-        if (failures.Any()) throw new ValidationException(failures.First().ErrorMessage);
+        if (failures.Any()) throw new ValidationException(failures);
 
         return await next();
     }
