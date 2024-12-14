@@ -16,7 +16,7 @@ builder.Services.AddValidatorsFromAssembly(assembly);
 builder.Services.AddCarter();
 
 var connectionString = builder.Configuration.GetConnectionString("Database")!;
-
+Console.WriteLine(connectionString + "-------------------------------------");
 builder.Services.AddMarten(opts => { opts.Connection(connectionString); })
     .UseLightweightSessions();
 

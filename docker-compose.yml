@@ -1,18 +1,29 @@
 version: '3.4'
 
 services:
-  catalogdb:
-    image: postgres:latest
-    container_name: catalogdb
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=Dachi123
-      - POSTGRES_DB=CatalogDb
-    restart: always
-    ports:
-      - "5433:5432"
-    volumes:
-      - postgres_catalog:/var/lib/postgresql/data/
 
-volumes:
-  postgres_catalog:
+  catalog.api:
+    image: catalog.api
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Host=catalogdb;Port=5432;Database=CatalogDb;Username=postgres;Password=Dachi123;Include Error Detail=true
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=654123
+    ports:
+      - "6000:8080"
+      - "6060:8081"
+    volumes:
+      - ~/.aspnet/https:/https:ro
+  
+  catalogdb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Dachi123
+    ports:
+      - "5432:5432"
