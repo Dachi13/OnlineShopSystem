@@ -17,6 +17,29 @@ services:
     ports:
       - "6000:8080"
       - "6060:8081"
+    depends_on:
+      - catalogdb
+    volumes:
+      - ~/.aspnet/https:/https:ro
+  
+  basket.api:
+    image: basket.api
+    build:
+      context: .
+      dockerfile: Basket.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=basketdb;Port=5432;Database=BasketDb;Username=postgres;Password=Dachi123;
+      - ConnectionStrings__Redis=distributedcache:6379
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=654123
+    ports:
+      - "6001:8080"
+      - "6061:8081"
+    depends_on:
+      - basketdb
     volumes:
       - ~/.aspnet/https:/https:ro
 
