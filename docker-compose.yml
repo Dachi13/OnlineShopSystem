@@ -19,11 +19,38 @@ services:
       - "6060:8081"
     volumes:
       - ~/.aspnet/https:/https:ro
-  
+
   catalogdb:
+    container_name: catalogdb
     image: postgres
     restart: always
     environment:
+      POSTGRES_DB: CatalogDb
       POSTGRES_PASSWORD: Dachi123
     ports:
       - "5432:5432"
+    volumes:
+      - catalogdb_data:/var/lib/postgresql/data
+
+  basketdb:
+    container_name: basketdb
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: BasketDb
+      POSTGRES_PASSWORD: Dachi123
+    ports:
+      - "5433:5432"
+    volumes:
+      - basketdb_data:/var/lib/postgresql/data
+
+  distributedcache:
+    image: redis
+    container_name: distributedcache
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  catalogdb_data:
+  basketdb_data:
